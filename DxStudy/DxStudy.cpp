@@ -483,7 +483,11 @@ void InitDx()
 		{
 			{{0.0f, 0.0f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},
 			{{1.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f, 1.0f}},
-			{{1.0f, -1.0f, 0.0f}, {0.0f, 0.0f, 1.0f, 1.0f}}
+			{{1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f, 1.0f}},
+
+			{{0.0f, 0.0f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},
+			{{-1.0f, 0.0f, 0.0f}, {1.0f, 1.0f, 1.0f, 1.0f}},
+			{{0.0f, 1.0f, 0.0f}, {0.0f, 1.0f, 0.0f, 1.0f}},
 		};
 
 		const UINT vertexBufferSize = sizeof triangleVertices;
@@ -566,7 +570,7 @@ void PopulateCommandList()
 	gCommandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
 	gCommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	gCommandList->IASetVertexBuffers(0, 1, &gVertexBufferView);
-	gCommandList->DrawInstanced(3,
+	gCommandList->DrawInstanced(6,
 	                            1,
 	                            0,
 	                            0);
